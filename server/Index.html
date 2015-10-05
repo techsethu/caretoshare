@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app.c2s">
+
+<head>
+<script>
+
+var ws = new WebSocket("ws://127.0.0.1:8080/");
+
+ws.onopen = function() {
+    alert("Opened!");
+    ws.send("Hello Server");
+};
+
+ws.onmessage = function (evt) {
+    alert("Message: " + evt.data);
+};
+
+ws.onclose = function() {
+    alert("Closed!");
+};
+
+ws.onerror = function(err) {
+    alert("Error: " + err);
+};
+
+sendMessage = function() {
+	
+	alert(document.getElementById('message').value);
+	ws.send(document.getElementById('message').value);
+};
+</script>
+</head>
+
+<body>
+	<div class="header"><h1>Home</h1></div>
+	<div ui-view="content"></div>
+	<input type="text" id="message" />
+	<button onclick="sendMessage();">Send</button>
+	
+	
+</body>
+
+</html>
