@@ -1,0 +1,18 @@
+<div class="row">
+    
+    <div id="request-status-div" class="col-sm-12">
+        <label for="requestID">Request ID</label>
+        <input type="text" class="input-lg" ng-model="requestID" placeholder="Enter a Request ID" />
+    </div>
+
+    <div class="col-sm-12" >
+        <table class="table">
+            <tr ng-repeat="status in statuses" class>
+                <td>{{status.name}}</td>
+                <td ><span ng-hide="!{{status.status}}" class="glyphicon glyphicon-ok"></span>
+                     <span ng-hide="{{status.status}}" class="glyphicon glyphicon-remove"></span>
+                </td>     
+            </tr>
+        </table>
+    </div>
+</div>

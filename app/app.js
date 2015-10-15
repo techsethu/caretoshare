@@ -2,12 +2,15 @@
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
-  'ngRoute',
-  'myApp.discussion',
-  'myApp.chat',
-  'myApp.dashboard',
-  'myApp.version'
+//    'ngGrid',
+    'ngRoute',
+    'ngResource',
+    'myApp.status',
+    'myApp.discussion',
+    'myApp.chat',
+    'myApp.dashboard',
+    'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/dashboard'});
+  $routeProvider.otherwise({redirectTo: '/status'});
 }]);

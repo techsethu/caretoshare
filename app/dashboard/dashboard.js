@@ -1,15 +1,33 @@
 'use strict';
 
-angular.module('myApp.dashboard', ['ngRoute'])
+var dashboard = angular.module('myApp.dashboard', ['ngRoute']);
 
-.config(['$routeProvider', function($routeProvider) {
+dashboard.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/dashboard', {
     templateUrl: 'dashboard/dashboard.html',
     controller: 'dashboardCtrl'
   });
-}])
+}]);
 
-.controller('dashboardCtrl', ['$scope', function($scope) {
+dashboard.factory("dashboardService", ['$resource', function ($resource) {
+    return {
+        getDashboard: function() {
+            return $resource('http://localhost:8080/c2s/dashboard').query(); 
+        }
+    };
+}]);
+
+dashboard.controller('dashboardCtrl', ['$scope','dashboardService', function($scope, dashboardService) {
     
-    $scope.menuItems = ['Discussion','Chat','Survey','Event','Ads','Exchange'];
+    $scope.initDashboard = function() {
+        
+     dashboardService.getDashboard()
+    .$promise.then(
+         function(data) {
+            $scope.menuItems = data;
+         },
+         function(error) {
+           
+         });
+    };
 }]);

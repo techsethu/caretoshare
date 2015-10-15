@@ -1,3 +1,5 @@
-<div class="col-12 menu">
-    <ul><li ng-repeat="x in menuItems"><a href="#/{{x}}">{{x}}</a></li></ul>
+<div class="row" ng-init="initDashboard();">
+    <div id="menuGrid" class="col-sm-4" ng-repeat="menu in menuItems">
+        <a href="#/{{menu}}">{{menu.name}}</a></li>
+    </div>
 </div>

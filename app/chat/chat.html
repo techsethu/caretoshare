@@ -1,5 +1,8 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+
+
+    <div id="header" class="col-sm-12 panel-heading" style="height:10%;">{{chatTitle}}</div>
+    <div id="chatHistory" class="col-sm-12 panel-body" style="height:78%;overflow:auto;"></div>
+    <div id="footer" class="col-sm-12 panel-footer" style="height:10%;">
+        <textarea id="message" class="col-sm-12"></textarea>
+        <button type="button" class="btn btn-primary" ng-click="sendMessage();">Think Before Act..</button>
+    </div>
