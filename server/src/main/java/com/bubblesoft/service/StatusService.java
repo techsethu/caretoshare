@@ -21,12 +21,18 @@ public class StatusService {
     public List<Status> getStatus(@PathParam("id") String id) {
         
     	List<Status> list = new ArrayList<Status>();
-    	list.add(new Status("Discussion",false));
-    	list.add(new Status("Chat",false));
-    	list.add(new Status("Survey",false));
-    	list.add(new Status("Test",false));
-    	list.add(new Status("Test",true));
-    	list.add(new Status("Test",true));
+    	list.add(new Status("Payload Submission",true));
+    	list.add(new Status("Invoice",true));
+    	list.add(new Status("EPRINT",true));
+    	list.add(new Status("PRINT",true));
+    	list.add(new Status("FTP_COMPLETE",true));
+    	list.add(new Status("PENDING Payment",true));
+    	list.add(new Status("SEND MAIL",true));
+    	list.add(new Status("ARCHIVE",false));
+    	list.add(new Status("WIPE",false));
+    	list.add(new Status("PURGE",false));
+    	list.add(new Status("DELETE",false));
+    	list.add(new Status("COMPLETE",false));
     	return list;
     }
 }
